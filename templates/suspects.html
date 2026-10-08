@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suspects</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="page-container narrow">
+        <div class="card">
+            <p class="tiny-label">INVESTIGATION BOARD</p>
+            <h1>Suspects</h1>
+
+            <div class="suspect-grid">
+                {% for key, person in suspects.items() %}
+                <div class="suspect-card">
+                    <h3>{{ person.name }}</h3>
+                    <p class="role">{{ person.role }}</p>
+                    <a href="{{ url_for('interview', suspect=key) }}" class="secondary-btn">Interview {{ person.name }}</a>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="button-row spaced-top">
+                <a href="{{ url_for('clues') }}" class="primary-btn">EXAMINE CLUES</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="page-container narrow">
+        <div class="card">
+            <p class="tiny-label">INTERVIEW ROOM</p>
+            <h1>{{ suspect.name }}</h1>
+            <p class="role">{{ suspect.role }}</p>
+
+            <div class="statement-box">
+                <h3>Suspect's Statement:</h3>
+                <p>"{{ suspect.statement }}"</p>
+            </div>
+
+            <div class="statement-box clue-box">
+                <h3>Investigator's Observation:</h3>
+                <p>{{ suspect.clue }}</p>
+            </div>
+
+            <div class="button-row">
+                <a href="{{ url_for('show_suspects') }}" class="secondary-btn">Back to Suspects</a>
+                <a href="{{ url_for('clues') }}" class="primary-btn">Examine Clues</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clues</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="page-container narrow">
+        <div class="card">
+            <p class="tiny-label">EVIDENCE FILE</p>
+            <h1>Clues</h1>
+
+            <div class="clue-list">
+                {% for clue in evidence %}
+                <div class="clue-item">
+                    <h3>{{ clue.title }}</h3>
+                    <p>{{ clue.detail }}</p>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="button-row spaced-top">
+                <a href="{{ url_for('accuse') }}" class="primary-btn">MAKE YOUR ACCUSATION</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="page-container narrow">
+        <div class="card">
+            {% if is_correct %}
+                <p class="tiny-label success-label">CASE CLOSED</p>
+                <h1>🎉 CASE SOLVED!</h1>
+                <p class="result-text">You identified the thief!</p>
+                <p class="result-text">{{ thief_name }} was the person who stole the trophy.</p>
+                <p class="result-text">Excellent detective work!</p>
+            {% else %}
+                <p class="tiny-label danger-label">CASE OPEN</p>
+                <h1>❌ WRONG ACCUSATION</h1>
+                <p class="result-text">You accused {{ selected_name }}.</p>
+                <p class="result-text">That person was not the thief.</p>
+                <p class="result-text">Review the clues and try again.</p>
+            {% endif %}
+
+            <div class="button-row spaced-top">
+                <a href="{{ url_for('accuse') }}" class="secondary-btn">TRY AGAIN</a>
+                <a href="{{ url_for('home') }}" class="primary-btn">NEW INVESTIGATION</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

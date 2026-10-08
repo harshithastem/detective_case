@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Accusation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="page-container narrow">
+        <div class="card">
+            <p class="tiny-label">FINAL STEP</p>
+            <h1>FINAL ACCUSATION</h1>
+            <p class="instruction-text">You have interviewed the suspects and examined the evidence. Who stole the trophy?</p>
+
+            {% if error %}
+            <p class="error-message">{{ error }}</p>
+            {% endif %}
+
+            <form method="POST">
+                <div class="radio-list">
+                    {% for key, person in suspects.items() %}
+                    <label class="radio-option">
+                        <input type="radio" name="suspect" value="{{ key }}" required>
+                        <span>{{ person.name }} - {{ person.role }}</span>
+                    </label>
+                    {% endfor %}
+                </div>
+
+                <div class="button-row spaced-top">
+                    <button type="submit" class="primary-btn">CONFIRM ACCUSATION</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
