@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Detective Case: The Missing Trophy
 
 ## Project Name
@@ -59,3 +60,6 @@ Accusation
  ↓
 Result
 ```
+=======
+# detective_case
+>>>>>>> b237eacf5e1f14706a43ef2736f140352773b81b
